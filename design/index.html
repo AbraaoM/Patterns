@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abraão Moreira - Demonstração do Padrão de Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Definindo as fontes no Tailwind */
+        .font-anton {
+            font-family: 'Anton', sans-serif;
+        }
+        .font-inter {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Cores personalizadas para fácil acesso (opcional, Tailwind permite JIT) */
+        :root {
+            --color-primary-dark: #4a0094;
+            --color-primary-medium: #7600ad;
+            --color-accent: #ffb545;
+            --color-white: #ffffff;
+            --color-black: #000000;
+        }
+
+        /* Estilos para os exemplos de componentes */
+        .custom-button {
+            transition: all 0.3s ease;
+        }
+        .custom-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .custom-card {
+            transition: all 0.3s ease;
+        }
+        .custom-card:hover {
+            transform: scale(1.03);
+        }
+    </style>
+    <script>
+        // Configuração do Tailwind para incluir as cores e fontes personalizadas
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#4a0094',
+                        'primary-medium': '#7600ad',
+                        'accent': '#ffb545',
+                    },
+                    fontFamily: {
+                        'anton': ['Anton', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'custom-gradient': 'linear-gradient(to right, #4a0094, #7600ad)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-inter text-gray-800 antialiased">
+
+    <header class="bg-custom-gradient text-white p-8 shadow-lg">
+        <div class="container mx-auto">
+            <h1 class="font-anton text-5xl tracking-wider">Abraão Moreira - Padrão de Design</h1>
+            <p class="font-inter text-xl mt-2">Uma demonstração visual das diretrizes de design.</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-6 md:p-8 space-y-12">
+
+        <section id="colors">
+            <h2 class="font-anton text-4xl text-primary-dark mb-6 border-b-2 border-accent pb-2">Paleta de Cores</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-center">
+                <div class="rounded-lg shadow-md p-6 bg-white">
+                    <div class="w-full h-24 rounded-md mb-3" style="background-color: #4a0094;"></div>
+                    <h3 class="font-bold text-lg font-inter">Roxo Escuro</h3>
+                    <p class="text-sm text-gray-600 font-inter">#4a0094</p>
+                </div>
+                <div class="rounded-lg shadow-md p-6 bg-white">
+                    <div class="w-full h-24 rounded-md mb-3" style="background-color: #7600ad;"></div>
+                    <h3 class="font-bold text-lg font-inter">Roxo Médio</h3>
+                    <p class="text-sm text-gray-600 font-inter">#7600ad</p>
+                </div>
+                <div class="rounded-lg shadow-md p-6 bg-white">
+                    <div class="w-full h-24 rounded-md mb-3" style="background-color: #ffb545;"></div>
+                    <h3 class="font-bold text-lg font-inter">Amarelo Destaque</h3>
+                    <p class="text-sm text-gray-600 font-inter">#ffb545</p>
+                </div>
+                <div class="rounded-lg shadow-md p-6 bg-white border border-gray-200">
+                    <div class="w-full h-24 rounded-md mb-3" style="background-color: #ffffff; border: 1px solid #eee;"></div>
+                    <h3 class="font-bold text-lg font-inter">Branco</h3>
+                    <p class="text-sm text-gray-600 font-inter">#ffffff</p>
+                </div>
+                <div class="rounded-lg shadow-md p-6 bg-white">
+                    <div class="w-full h-24 rounded-md mb-3" style="background-color: #000000;"></div>
+                    <h3 class="font-bold text-lg font-inter">Preto</h3>
+                    <p class="text-sm text-gray-600 font-inter">#000000</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gradient">
+            <h2 class="font-anton text-4xl text-primary-dark mb-6 border-b-2 border-accent pb-2">Demonstração do Gradiente</h2>
+            <div class="w-full h-48 md:h-64 rounded-lg shadow-md bg-custom-gradient flex items-center justify-center">
+                <p class="font-inter text-2xl text-white font-semibold">#4a0094 → #7600ad</p>
+            </div>
+        </section>
+
+        <section id="typography">
+            <h2 class="font-anton text-4xl text-primary-dark mb-6 border-b-2 border-accent pb-2">Tipografia</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="font-anton text-3xl text-primary-medium mb-4">Fonte Anton</h3>
+                    <p class="font-anton text-5xl mb-2">ABCDEFGHIJKLMN</p>
+                    <p class="font-anton text-3xl mb-2">abcdefghijklmn</p>
+                    <p class="font-anton text-xl mb-4">0123456789</p>
+                    <p class="font-inter text-gray-700">Ideal para títulos e destaques, proporcionando impacto visual.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="font-inter text-3xl font-bold text-primary-medium mb-4">Fonte Inter</h3>
+                    <p class="font-inter text-2xl mb-2">Corpo de Texto Regular</p>
+                    <p class="font-inter text-lg mb-2">Este é um parágrafo de exemplo usando a fonte Inter. É uma fonte versátil e legível, ótima para corpo de texto e interfaces.</p>
+                    <p class="font-inter text-lg font-bold mb-2">Texto em Negrito (Inter Bold)</p>
+                    <p class="font-inter text-sm text-gray-600">A Inter oferece excelente legibilidade em diversos tamanhos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="components">
+            <h2 class="font-anton text-4xl text-primary-dark mb-6 border-b-2 border-accent pb-2">Exemplos de Componentes</h2>
+            <div class="space-y-8">
+                <div>
+                    <h3 class="font-inter text-2xl font-bold text-primary-medium mb-4">Botões</h3>
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <button class="custom-button font-inter font-semibold text-white bg-primary-medium hover:bg-primary-dark py-3 px-6 rounded-lg shadow-md">
+                            Botão Primário
+                        </button>
+                        <button class="custom-button font-inter font-semibold text-primary-medium border-2 border-primary-medium hover:bg-primary-medium hover:text-white py-3 px-6 rounded-lg shadow-md">
+                            Botão Secundário
+                        </button>
+                        <button class="custom-button font-inter font-semibold text-white bg-accent hover:opacity-85 py-3 px-6 rounded-lg shadow-md">
+                            Botão Destaque
+                        </button>
+                         <button class="custom-button font-inter font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300 py-3 px-6 rounded-lg shadow-md">
+                            Botão Neutro
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-inter text-2xl font-bold text-primary-medium mb-4">Card de Exemplo</h3>
+                    <div class="custom-card bg-white rounded-xl shadow-xl overflow-hidden max-w-md mx-auto md:max-w-2xl">
+                        <div class="md:flex">
+                            <div class="md:shrink-0">
+                                <img class="h-48 w-full object-cover md:h-full md:w-48" src="https://placehold.co/600x400/7600ad/ffb545?text=Exemplo" alt="Imagem de Exemplo do Card">
+                            </div>
+                            <div class="p-8">
+                                <div class="font-anton uppercase tracking-wide text-sm text-accent font-semibold">Categoria</div>
+                                <a href="#" class="font-anton block mt-1 text-2xl leading-tight font-medium text-black hover:underline">Título Incrível do Card</a>
+                                <p class="font-inter mt-2 text-slate-600">Este é um exemplo de como um card pode ser estilizado usando o padrão de design. Ele combina tipografia, cores e espaçamento para criar um componente visualmente agradável.</p>
+                                <button class="custom-button font-inter mt-6 font-semibold text-white bg-primary-medium hover:bg-primary-dark py-2 px-4 rounded-md shadow-md">
+                                    Saiba Mais
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div>
+                    <h3 class="font-inter text-2xl font-bold text-primary-medium mb-4">Notificações</h3>
+                    <div class="space-y-4">
+                        <div class="bg-primary-medium/10 border-l-4 border-primary-medium text-primary-dark p-4 rounded-md shadow" role="alert">
+                            <p class="font-bold font-inter">Notificação Primária</p>
+                            <p class="font-inter text-sm">Esta é uma mensagem informativa importante.</p>
+                        </div>
+                        <div class="bg-accent/10 border-l-4 border-accent text-yellow-700 p-4 rounded-md shadow" role="alert">
+                            <p class="font-bold font-inter">Alerta de Destaque</p>
+                            <p class="font-inter text-sm">Atenção! Esta é uma mensagem que requer sua atenção.</p>
+                        </div>
+                         <div class="bg-gray-500/10 border-l-4 border-gray-500 text-gray-700 p-4 rounded-md shadow" role="alert">
+                            <p class="font-bold font-inter">Notificação Neutra</p>
+                            <p class="font-inter text-sm">Uma informação geral para o usuário.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-primary-dark text-white text-center p-8 mt-12">
+        <p class="font-inter">&copy; <span id="currentYear"></span> Abraão Moreira. Todos os direitos reservados.</p>
+        <p class="font-inter text-sm mt-1">Página de demonstração do padrão de design.</p>
+    </footer>
+
+    <script>
+        // Script para o ano atual no rodapé
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
